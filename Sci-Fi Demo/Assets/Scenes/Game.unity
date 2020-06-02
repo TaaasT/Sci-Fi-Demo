@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4067de1a02072244798361060c5e7325, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -168,8 +168,8 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 35.90162, y: 10, z: 8.836887}
-  m_BoxOffset: {x: 11.564892, y: 0, z: -0.5815563}
+  m_BoxSize: {x: 36.00584, y: 10, z: 8.836887}
+  m_BoxOffset: {x: 11.61701, y: 0, z: -0.5815563}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100
@@ -496,7 +496,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.53626734, g: 0.9716981, b: 0.7582464, a: 1}
-  m_Intensity: 2.79
+  m_Intensity: 2.52
   m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
