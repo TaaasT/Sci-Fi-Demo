@@ -17,7 +17,15 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
         Vector3 velocity = direction * _speed;
         velocity.y -= _gravity;
         _controller.Move(velocity * Time.deltaTime);
