@@ -20,13 +20,24 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        CalculateMovement();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray rayOrigin = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+
+
+            if (Physics.Raycast(rayOrigin, Mathf.Infinity))
+            {
+                Debug.Log("Raycast Hit Something");
+            }
+        }
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+
+        CalculateMovement();
     }
 
     void CalculateMovement()
