@@ -22,12 +22,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray rayOrigin = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+            Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
+            RaycastHit hitInfo;
 
-            if (Physics.Raycast(rayOrigin, Mathf.Infinity))
+            if (Physics.Raycast(rayOrigin, out hitInfo))
             {
-                Debug.Log("Raycast Hit Something");
+                Debug.Log("Hit " + hitInfo.transform.name);
             }
         }
 
