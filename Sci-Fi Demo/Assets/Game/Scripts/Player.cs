@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 3.5f;
     private float _gravity = 9.81f;
+    [SerializeField]
+    private GameObject _muzzleFlash;
 
     void Start()
     {
@@ -20,8 +22,11 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
+            _muzzleFlash.SetActive(true);
+
+
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
             RaycastHit hitInfo;
@@ -31,6 +36,11 @@ public class Player : MonoBehaviour
                 Debug.Log("Hit " + hitInfo.transform.name);
             }
         }
+        else
+        {
+            _muzzleFlash.SetActive(false);
+        }
+        
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
