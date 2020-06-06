@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private int currentAmmo;
     private int maxAmmo = 50;
 
+    private bool _isReloading = false;
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -42,7 +44,13 @@ public class Player : MonoBehaviour
             _muzzleFlash.SetActive(false);
             _weaponAudio.Stop();
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.R) && _isReloading == false)
+        {
+            _isReloading = true;
+            StartCoroutine(Reload());
+
+        }
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -87,4 +95,12 @@ public class Player : MonoBehaviour
 
         _controller.Move(velocity * Time.deltaTime);
     }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(1.5f);
+        currentAmmo = maxAmmo;
+        _isReloading = false;
+    }
+
 }
