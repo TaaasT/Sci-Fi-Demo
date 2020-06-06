@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     private bool _isReloading = false;
 
+    private UIManager _uiManager;
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -30,6 +32,8 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         currentAmmo = maxAmmo;
+
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     
@@ -65,6 +69,7 @@ public class Player : MonoBehaviour
     {
         _muzzleFlash.SetActive(true);
         currentAmmo--;
+        _uiManager.UpdateAmmo(currentAmmo);
         if (_weaponAudio.isPlaying == false)
         {
             _weaponAudio.Play();
@@ -100,6 +105,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         currentAmmo = maxAmmo;
+        _uiManager.UpdateAmmo(currentAmmo);
         _isReloading = false;
     }
 
