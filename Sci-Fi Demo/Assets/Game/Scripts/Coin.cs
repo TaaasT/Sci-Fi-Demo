@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    AudioSource _audioSource;
-
-    private void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField]
+    AudioClip _coinPickup;
 
     private void OnTriggerStay(Collider other)
     {
@@ -21,9 +17,8 @@ public class Coin : MonoBehaviour
                 if (player != null)
                 {
                     player.hasCoin = true;
-                    _audioSource.Play();
-                    GetComponent<MeshRenderer>().enabled = false;
-                    Destroy(this.gameObject, 1f);
+                    AudioSource.PlayClipAtPoint(_coinPickup, transform.position, 1f);
+                    Destroy(this.gameObject);
                 }
 
             }
