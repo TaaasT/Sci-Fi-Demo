@@ -13,10 +13,21 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (other.tag == "Player")
         {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                Player player = other.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.hasCoin = true;
+                    _audioSource.Play();
+                    GetComponent<MeshRenderer>().enabled = false;
+                    Destroy(this.gameObject, 1f);
+                }
 
-            _audioSource.Play();
+            }
+
         }
 
     }

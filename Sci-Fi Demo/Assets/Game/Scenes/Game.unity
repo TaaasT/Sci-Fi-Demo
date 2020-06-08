@@ -1239,6 +1239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 1312427962481228, guid: 93fb048d0136f084cb1f783ca99e5ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4343809486467572, guid: 93fb048d0136f084cb1f783ca99e5ea7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.594732
@@ -1652,6 +1656,7 @@ MonoBehaviour:
     type: 3}
   _weaponAudio: {fileID: 563766120}
   currentAmmo: 0
+  hasCoin: 0
 --- !u!23 &2129450837
 MeshRenderer:
   m_ObjectHideFlags: 0
