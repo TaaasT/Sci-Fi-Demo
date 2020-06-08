@@ -6,12 +6,6 @@ public class LookX : MonoBehaviour
 {
     [SerializeField]
     private float _sensitivity = 1f;
-
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {

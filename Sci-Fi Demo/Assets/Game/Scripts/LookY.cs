@@ -5,13 +5,6 @@ using UnityEngine;
 public class LookY : MonoBehaviour
 {
     
-
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
         float _mouseY = Input.GetAxis("Mouse Y");
