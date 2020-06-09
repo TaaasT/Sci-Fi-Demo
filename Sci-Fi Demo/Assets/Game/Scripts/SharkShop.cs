@@ -23,6 +23,7 @@ public class SharkShop : MonoBehaviour
                         if(uiManager != null)
                         {
                             uiManager.RemoveCoin();
+                            uiManager.EnableAmmoText();
                         }
 
                         AudioSource audio = GetComponent<AudioSource>();

@@ -10,7 +10,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _coin;
 
-   public void UpdateAmmo(int count)
+    private void Start()
+    {
+        _ammoText.enabled = false;
+    }
+
+    public void UpdateAmmo(int count)
     {
         _ammoText.text = "Ammo: " + count; 
     }
@@ -23,6 +28,11 @@ public class UIManager : MonoBehaviour
     public void RemoveCoin()
     {
         _coin.SetActive(false);
+    }
+
+    public void EnableAmmoText()
+    {
+        _ammoText.enabled = true;
     }
 
 }
