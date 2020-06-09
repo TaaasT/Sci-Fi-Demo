@@ -72,24 +72,32 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        _muzzleFlash.SetActive(true);
-        currentAmmo--;
-        _uiManager.UpdateAmmo(currentAmmo);
-        if (_weaponAudio.isPlaying == false)
+        if (_weapon.activeSelf == false)
         {
-            _weaponAudio.Play();
+            return;
+        }
+        else
+        {
+            _muzzleFlash.SetActive(true);
+            currentAmmo--;
+            _uiManager.UpdateAmmo(currentAmmo);
+            if (_weaponAudio.isPlaying == false)
+            {
+                _weaponAudio.Play();
+            }
+
+            Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+            RaycastHit hitInfo;
+
+            if (Physics.Raycast(rayOrigin, out hitInfo))
+            {
+                Debug.Log("Hit " + hitInfo.transform.name);
+                GameObject hitMarker = Instantiate(_hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
+                Destroy(hitMarker, 1f);
+            }
         }
 
-        Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-        RaycastHit hitInfo;
-
-        if (Physics.Raycast(rayOrigin, out hitInfo))
-        {
-            Debug.Log("Hit " + hitInfo.transform.name);
-            GameObject hitMarker = Instantiate(_hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
-            Destroy(hitMarker, 1f);
-        }
     }
 
     void CalculateMovement()
