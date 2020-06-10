@@ -87,7 +87,6 @@ public class Player : MonoBehaviour
             }
 
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
             RaycastHit hitInfo;
 
             if (Physics.Raycast(rayOrigin, out hitInfo))
@@ -95,7 +94,15 @@ public class Player : MonoBehaviour
                 Debug.Log("Hit " + hitInfo.transform.name);
                 GameObject hitMarker = Instantiate(_hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
                 Destroy(hitMarker, 1f);
+
+                Destructable crate = hitInfo.transform.GetComponent<Destructable>();
+                if(crate != null)
+                {
+                    crate.DestroyCrate();
+                }
+
             }
+
         }
 
     }
